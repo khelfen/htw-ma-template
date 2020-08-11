@@ -1,0 +1,48 @@
+\begin{code}
+    \captionof{listing}{Gaußsches Eliminationsverfahren}\label{code:GaussElem}
+    \begin{minted}[
+		linenos=true,
+		numbersep=-10pt,
+		obeytabs=true,
+		tabsize=4,
+		]{matlab}
+		%% Gaussian Elimination
+		% bringing the Matrix into upper triangular form
+		% initializing a new matrix to keep the previous results
+		GaussMat = OrdMat;
+		% and a new vector
+		GaussVec = OrdVec;
+		% for loop over m-1 elements
+		for i = 1:m-1
+		   % Calculating the Row Multiplier by dividing the
+		   % i Element of the row i+1:m through the
+		   % i,i Element of the matrix
+		   Mult = GaussMat(i+1:m,i) / GaussMat(i,i);
+		   % Calculating the new rows of the matrix
+		   GaussMat(i+1:m,:) = GaussMat(i+1:m,:) - Mult*GaussMat(i,:);
+		   % and the vector
+		   GaussVec(i+1:m,:) = GaussVec(i+1:m,:) - Mult*GaussVec(i,:);
+		end
+
+		% removing rounding errors near zero
+		threshold=10^(-12);
+		% set near zeros to zero in the Matrix
+		GaussMat(abs(GaussMat)<threshold) = 0;
+		% set near zeros to zero in the Vector
+		GaussVec(abs(GaussVec)<threshold) = 0;
+		% initializing the solution vector x
+		X = zeros(m,1);
+		% determining the first element of the solution
+		X(m,:) = GaussVec(m,:)/GaussMat(m,m);
+		% for loop over the missing solutions
+		for i = m-1:-1:1
+		   % Calculating the i element of x by substracting product
+		   % of the known elements of x and the corresponding row of
+		   % the Gauss Matrix from the corresponding element of the
+		   % Gauss Vector and dividing the outcome by
+		   % the matrix element i,i
+		   X(i,:) = ((GaussVec(i,:) -...
+					GaussMat(i,i+1:m)*X(i+1:m,:))/GaussMat(i,i));
+		end
+	\end{minted}
+\end{code}

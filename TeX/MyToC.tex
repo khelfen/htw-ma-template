@@ -1,0 +1,33 @@
+\microtypesetup{protrusion=false}
+\begin{spacing}{1}% Spacing auf 1 statt 1.5 setzen, damit ToC O.K. aussieht
+	\tableofcontents% Inhaltsverzeichnis
+\end{spacing}
+
+\newpage
+
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}% Abbildungsverzeichnins
+\begin{spacing}{1}
+	\listoffigures
+\end{spacing}
+
+\newpage
+
+\addcontentsline{toc}{section}{Tabellenverzeichnis}% Tabellenverzeichnis
+\begin{spacing}{1}
+	\listoftables
+\end{spacing}
+
+\newpage
+
+\begin{spacing}{2}% Abkürzungsverzeichnis
+	\printglossary[
+	type=\acronymtype,
+	nonumberlist,
+	style=super,
+	]% Keine Seitenzahl angeben
+\end{spacing}
+
+\microtypesetup{protrusion=true}
+
+\newpage
+\pagenumbering{arabic}% Arabic Page Numbers

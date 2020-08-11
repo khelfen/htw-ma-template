@@ -1,0 +1,155 @@
+%%%%%%%%% Dokumentenklasse
+\documentclass[
+	%fontsize=12pt,% Times New Roman
+	fontsize=11pt,% Andere
+	paper=a4,
+	]{scrartcl}
+
+%%%%%%%%% HTW Anforderungen
+\usepackage[
+	margin=2.5cm,% Seitenränder auf 2,5cm setzen
+%1	bottom=3.1cm,
+%	showframe,% <- only to show the page layout
+]{geometry}
+%\usepackage{mathptmx}% Times New Roman
+%\usepackage[scaled=0.92]{helvet}% quasi Arial
+%\renewcommand{\familydefault}{\sfdefault}
+
+%%%%%%%%% Literatur
+\usepackage[
+	backend = biber,
+	style=alphabetic,% Alphatischer Style [abc12]
+	maxalphanames=3,% Kurzform besteht aus maximal den ersten Buchstaben der Nachnamen der ersten drei Autoren (wenn min. 3 gegeben)
+	minalphanames=3,% Kurzform besteht aus minimal drei Buchstaben der Nachnamen der Autoren
+	]{biblatex}% Nützliche Anleitung: http://www.nagel-net.de/Latex/DOKU/DTK-2_2008-biblatex-Teil1.pdf
+
+%%%%%%%%% Code
+\usepackage[
+	newfloat,
+	]{minted}% Code highlighting
+\usepackage{caption}% Neue Environment um Code-Blöcken eine Caption zu geben
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Quellcode}
+
+%%%%%%%%% Sprachpackages
+\usepackage[
+	T1
+	]{fontenc}% Textzeichen für westeuropäische Sprachen
+\usepackage[
+	utf8
+	]{inputenc}% Umlaute
+\usepackage[
+	ngerman,% Deutsch
+	english,% Englisch
+	]{babel}% Automatisch erzeugte Texte werden auf Deutsch ausgegeben
+\usepackage[
+	ngerman
+	]{datetime2}% Datumsformate
+\usepackage{csquotes}% This package provides advanced facilities for inline and display quotations; should be loaded after minted
+\usepackage{textcomp}% Einige Symbole
+\usepackage[
+	official
+	]{eurosym}% €-Symbol
+
+%%%%%%%%% Blind-Text
+\usepackage{lipsum}
+
+%%%%%%%%% Mathe & Naturwissenschaften
+\usepackage[
+%	fleqn
+	]{amsmath}% Mathematische Formartierung
+\usepackage{
+	amssymb,% Mathematische Symbole
+	amsfonts,% Mathematische Schriftarten
+	}
+\usepackage{siunitx}% Saubere Darestellung von SI Einheiten
+\sisetup{
+	locale = DE,% Deutsche Norm, Kommas werden z.B. erkannt
+	per-mode=symbol,% Output a/b as \frac{a}{b} - in der Einheit
+	quotient-mode=symbol,% Output a/b as \frac{a}{b} - im Quotienten
+	fraction-function=\tfrac,
+	range-phrase = {\text{~bis~}},
+	sticky-per = true,% \per bleibt bestehen für mehr als eine Einheit
+	separate-uncertainty,% Standardabweichung
+}
+\usepackage{mathtools}
+\usepackage[
+	version=4,
+	]{mhchem}% chemische Gleichungen/Summenformeln
+
+%%%%%%%%% Grafiken und Farben
+\usepackage{graphicx}% viele grafische Befehle, z.B. \scalebox
+\usepackage{
+	xcolor,
+	colortbl,
+	}% Farben und Farbpaletten
+\usepackage[
+	export
+	]{adjustbox}% Positionieren von Grafiken, left, right, center
+\usepackage{float}% Floating Bilder, H-Befehl
+\usepackage{mwe}% Für Abbildungsverzeichnis
+\usepackage{graphics}% accommodate all needs for inclusion of graphics
+\usepackage{subfigure}% support for the manipulation and reference of small or ‘sub’ figures and tables within a single figure or table environment
+\usepackage{svg}% einbinden von svg Grafiken
+
+%%%%%%%%% Diagramme
+\usepackage{
+	tikz,% Grafik-Paket
+	stackengine,% versatile way to stack objects vertically in a variety of customizable ways
+	}
+\usepackage{pgfplots}% Plots
+\pgfplotsset{compat=1.14}% Soll man wohl machen
+\usetikzlibrary{patterns}% Patterns anstatt Farben
+
+%%%%%%%%% Seitenformatierung
+\makeatletter
+\usepackage{microtype}% Verbesserte Formatierung; Sollte immer geladen werden
+\g@addto@macro\@verbatim{\microtypesetup{activate=false}}
+\makeatother
+\usepackage[
+	headsepline,% Vertikale Linie unterm Header
+	plainheadsepline,
+	automark,% Section im Header
+	singlespacing=true,
+	]{scrlayer-scrpage}% Paket zur Manipulation der Kopf- und Fußzeilen
+\usepackage{adjustbox}% Elemente skalieren \scalebox
+\usepackage{pdflscape}% ermöglicht einzelne Seiten im landscape mode darzustellen
+\usepackage{abstract}% Abstract-Umgebung
+\usepackage{setspace}% Spacing-Umgebung
+
+%%%%%%%%% Tabellenumgebung
+\usepackage{booktabs}% enhances the quality of tables
+\usepackage{array}% extends the options for column formats
+\usepackage{
+	multirow,
+	makecell}% mehrzeilige Tabellenzellen
+\usepackage{tabu}% Moderneres tabularx
+
+%%%%%%%%% Custom
+\newenvironment{conditions}% New environment - Für saubere Darstellung gegebener Variablen
+	{\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+	{\end{tabular}\par\vspace{\belowdisplayskip}}
+\makeatletter% Roman Numbers in Text
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+\renewcommand*{\labelalphaothers}{\textsuperscript{+}}% superscript + instead of normal + in literature
+
+%%%%%%%%% Querverweise
+\usepackage{hyperref}% Links im pdf % Muss das letzte Paket sein was lädt, außer glossaries
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+%%%%%%%%% Abkürzungsverzeichnis:
+\usepackage[% Paket für Glossaries und Acronym-Glossaries % Muss das letzte Paket sein was lädt
+	acronym,
+	automake,
+	nopostdot,
+	toc,
+	nomain,
+	shortcuts,
+	nogroupskip,
+	]{glossaries}

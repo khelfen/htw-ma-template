@@ -1,0 +1,59 @@
+% Shortcuts for SI Values
+% Grundlagen: https://www.namsu.de/Extra/pakete/Siunitx.html
+% Gute Erklärung der Shortcuts: https://texwelt.de/fragen/2588/wie-schreibe-ich-zahlen-mit-einheiten-richtig
+
+%\DeclareSIUnit{\BeladungsDichte}{\kilo\gram_{\textup{H\textup{2}}\per\kilo\gram_{\textup{FeTi}}}}		% Beladungsdichte
+%\DeclareDocumentCommand\BeladungsDichte{O{}m}{\SI[#1]{#2}{\BeladungsDichte}}
+
+%\DeclareSIUnit[]\NormVolumen
+%{\text{\ensuremath{\cubic\meter_{\textup{i.N.}}}}}
+
+%%%%%%% New SIValues
+
+\DeclareSIUnit\sieuro{\mbox{\euro{}}}
+\DeclareSIUnit\Jahre{Jahre}
+\DeclareSIUnit\Jahren{Jahren}
+\DeclareSIUnit\anno{a}
+\DeclareSIUnit\peranno{\per\anno}
+\DeclareSIUnit\ct{ct}
+\DeclareSIUnit\coeq{\ce{CO2}eq}
+\DeclareSIUnit\normvol{\cubic\meter_{i.N.}}
+\DeclareSIUnit\normvolh{\cubic\meter_{i.N.}\per\hour}
+\DeclareSIUnit\normvolL{\liter_{i.N.}}
+\DeclareSIUnit\mgcubm{\milli\g\per\cubic\meter}
+\DeclareSIUnit\Molpercent{\mole\percent}
+\DeclareSIUnit\Volpercent{vol\percent}
+\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
+\DeclareSIUnit\mg{\milli\gram}
+\DeclareSIUnit\kw{\kilo\watt}
+\DeclareSIUnit\mw{\mega\watt}
+\DeclareSIUnit\gw{\giga\watt}
+\DeclareSIUnit\mj{\mega\joule}
+\DeclareSIUnit\kwh{kWh}
+\DeclareSIUnit\gwh{GWh}
+\DeclareSIUnit\twh{TWh}
+\DeclareSIUnit\twhHs{\twh_{H_s}}
+\DeclareSIUnit\kwp{\kilo\watt_{p}}
+\DeclareSIUnit\ctkwh{\ct\per\kwh}
+\DeclareSIUnit\Eurkwh{\sieuro\per\kwh}
+\DeclareSIUnit\Eurkw{\sieuro\per\kw}
+\DeclareSIUnit\Eurmw{\sieuro\per\mw}
+\DeclareSIUnit\gcoeqkwh{\gram\coeq\per\kwh}
+\DeclareSIUnit\gcoeqmj{\gram\coeq\per\mj}
+\DeclareSIUnit\mgkwh{\mg\per\kwh}
+
+%%%%%%% New complete Commands
+
+\NewDocumentCommand\DeclareNewQuantity{mmm}{%
+	\DeclareSIUnit{#2}{#3}%
+	\DeclareDocumentCommand{#1}{O{}m}{\SI[##1]{##2}{#2}}%
+}
+
+\DeclareNewQuantity
+	\Dichte
+	\dichte
+	{\kg\per\cubic\meter}
+\DeclareNewQuantity
+	\Normvolumen
+	\normvolumen
+	{\normvol}
