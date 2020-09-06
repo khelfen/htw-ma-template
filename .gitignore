@@ -274,3 +274,7 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# some auto folders
+*/_minted-00_main/*
+*/svg-inkscape/*
