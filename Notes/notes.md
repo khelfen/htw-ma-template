@@ -70,7 +70,6 @@ Requirements depend on the voltage connection level and the active power capacit
 
 ![Volt-Req](pics/2020-09-09_Nachweisverfahren.png)
 
-
 ## Neuausstattung mit deutschen Wechselrichter
 
 
