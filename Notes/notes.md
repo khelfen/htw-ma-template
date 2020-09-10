@@ -52,6 +52,24 @@ Requirements depend on the voltage connection level and the active power capacit
 
 > Typ 1 EZE sind gemäß 4105 in der Regel jeweils eine EZA, auch wenn mehrere Typ 1 EZE über einem NAP einspeisen
 
+### Zeitplan VDE-AR-N 4110
+
+![Volt-Req](pics/2020-09-09_timeTable_VDE2.png)
+
+![Volt-Req](pics/2020-09-09_timeTable_VDE3.png)
+
+![Volt-Req](pics/2020-09-09_timeTable_VDE4.png)
+
+![Volt-Req](pics/2020-09-09_timeTable_VDE5.png)
+
+> Die angegebenen Zeiten sind Richtwerte. Abweichungen zu dem Zeitplan dürfen bilateral zwischen Netzbetreiber und Anschlussnehmer vereinbart werden. Insbesondere die Art, den Umfang und den Zeitpunkt zur Übergabe und zum Abschluss der notwendigen Netzverträge dürfen Netzbetreiber separat festlegen. Erforderliche Nachbesserungen dürfen die Zeitangaben verschieben.
+
+> Beispiel: Das Anlagenzertifikat wird praktisch erst 4 Wochen vor IBN des Netzanschlusses möglich sein.
+
+> Quasistationäre Betrieb ist definiert durch einen Spannungsgradienten von < 5 % Un/min und einen Frequenzgradienten von < 0,5 % fn/min. Der Nachweis für die EZE kann durch Herstellererklärungen erbracht werden
+
+![Volt-Req](pics/2020-09-09_Nachweisverfahren.png)
+
 ## Neuausstattung mit deutschen Wechselrichter
 
 
